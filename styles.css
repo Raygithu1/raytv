@@ -1,0 +1,211 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a21;
+  --panel-2: #1e222b;
+  --border: #2a2f3a;
+  --text: #e8eaee;
+  --muted: #8b93a1;
+  --accent: #6ea8fe;
+  --live: #ff5252;
+  --ppm: 2.4px;
+  --ch-col: 110px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex-wrap: wrap;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #081019;
+  font-weight: 800;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+.brand h1 { font-size: 20px; margin: 0; line-height: 1.15; }
+.subtitle { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); }
+
+.clock { text-align: right; }
+.clock-time { font-size: 22px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.clock-date { font-size: 12.5px; color: var(--muted); }
+
+.day-nav {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  background: var(--bg);
+}
+.day-btn {
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.day-btn:hover { border-color: var(--accent); }
+.day-btn.active { background: var(--accent); color: #081019; font-weight: 700; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 0 20px 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legend .cur { color: var(--live); font-weight: 700; }
+
+.status { padding: 24px 20px; color: var(--muted); }
+
+.guide {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 20px;
+  scrollbar-width: thin;
+}
+
+.ruler-row, .chan-row {
+  display: flex;
+  min-width: max-content;
+}
+.ruler-row {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.ch-col {
+  width: var(--ch-col);
+  min-width: var(--ch-col);
+  position: sticky;
+  left: 0;
+  z-index: 12;
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-right: 1px solid var(--border);
+}
+.ruler-corner {
+  height: 30px;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.ruler { position: relative; height: 30px; }
+.ruler .tick {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-left: 1px solid var(--border);
+}
+.ruler .tick span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ruler .tick.now {
+  border-left-color: var(--live);
+}
+
+.track { position: relative; height: 74px; background: var(--bg); }
+.chan-row + .chan-row .track { border-top: 6px solid var(--panel); }
+
+.prog {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: default;
+  min-width: 4px;
+}
+.prog .p-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.prog .p-meta {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.now-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--live);
+  z-index: 5;
+  pointer-events: none;
+}
+.now-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -4px;
+  border: 4px solid transparent;
+  border-top: 7px solid var(--live);
+}
+
+.site-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .brand h1 { font-size: 17px; }
+  .clock-time { font-size: 18px; }
+  :root { --ch-col: 82px; }
+}
