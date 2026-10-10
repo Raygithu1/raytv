@@ -9,6 +9,12 @@
       "xmltv_ids": ["HBO.us"]
     },
     {
+      "number": "???",
+      "name": "HBO Movies",
+      "color": "#1e1e24",
+      "xmltv_ids": ["HBOMovies.us"]
+    },
+    {
       "number": "3063",
       "name": "Showtime",
       "color": "#c8102e",
