@@ -3,7 +3,7 @@
   "source": "https://iptv-epg.org/files/epg-us.xml.gz",
   "channels": [
     {
-      "number": "65",
+      "number": "3187",
       "name": "HBO HD",
       "color": "#0b0b0f",
       "xmltv_ids": ["HBO.us"]
