@@ -105,6 +105,78 @@
       "xmltv_ids": [
         "HBOBoxing.us"
       ]
+    },
+    {
+      "number": "CIN1",
+      "name": "Cinemax East",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CineMAX.us"
+      ]
+    },
+    {
+      "number": "CIN2",
+      "name": "Cinemax West",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CineMAXPacific.us"
+      ]
+    },
+    {
+      "number": "CIN3",
+      "name": "Cinemax Hits",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxHits.us"
+      ]
+    },
+    {
+      "number": "CIN4",
+      "name": "Cinemax Hits West",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxHitsPacific.us"
+      ]
+    },
+    {
+      "number": "CIN5",
+      "name": "Cinemax Action",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxAction.us"
+      ]
+    },
+    {
+      "number": "CIN6",
+      "name": "Cinemax Action West",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxActionPacific.us"
+      ]
+    },
+    {
+      "number": "CIN7",
+      "name": "Cinemax Classics",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxClassics.us"
+      ]
+    },
+    {
+      "number": "CIN8",
+      "name": "Cinemax Classics West",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxClassicsPacific.us"
+      ]
+    },
+    {
+      "number": "CIN9",
+      "name": "Cinemax Spanish",
+      "color": "#1b1b22",
+      "xmltv_ids": [
+        "CinemaxSpanish.us"
+      ]
     }
   ]
 }
