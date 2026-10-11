@@ -6,25 +6,113 @@
       "number": "3187",
       "name": "HBO HD",
       "color": "#0b0b0f",
-      "xmltv_ids": ["HBO.us"]
+      "xmltv_ids": [
+        "HBO.us"
+      ]
     },
     {
-      "number": "???",
+      "number": "TBD1",
+      "name": "HBO",
+      "color": "#111111",
+      "xmltv_ids": [
+        "HBO.us"
+      ]
+    },
+    {
+      "number": "TBD2",
+      "name": "HBO West",
+      "color": "#111111",
+      "xmltv_ids": [
+        "HBOPacific.us"
+      ]
+    },
+    {
+      "number": "TBD3",
+      "name": "HBO Comedy",
+      "color": "#1a1a1f",
+      "xmltv_ids": [
+        "HBOComedy.us"
+      ]
+    },
+    {
+      "number": "TBD4",
+      "name": "HBO Comedy West",
+      "color": "#1a1a1f",
+      "xmltv_ids": [
+        "HBOComedyPacific.us"
+      ]
+    },
+    {
+      "number": "TBD5",
+      "name": "HBO Drama",
+      "color": "#16161f",
+      "xmltv_ids": [
+        "HBODrama.us"
+      ]
+    },
+    {
+      "number": "TBD6",
+      "name": "HBO Drama West",
+      "color": "#16161f",
+      "xmltv_ids": [
+        "HBODramaPacific.us"
+      ]
+    },
+    {
+      "number": "TBD7",
+      "name": "HBO Hits",
+      "color": "#0f0f14",
+      "xmltv_ids": [
+        "HBOHits.us"
+      ]
+    },
+    {
+      "number": "TBD8",
+      "name": "HBO Hits West",
+      "color": "#0f0f14",
+      "xmltv_ids": [
+        "HBOHitsPacific.us"
+      ]
+    },
+    {
+      "number": "TBD9",
       "name": "HBO Movies",
       "color": "#1e1e24",
-      "xmltv_ids": ["HBOMovies.us"]
+      "xmltv_ids": [
+        "HBOMovies.us"
+      ]
     },
     {
-      "number": "3063",
-      "name": "Showtime",
-      "color": "#c8102e",
-      "xmltv_ids": ["Showtime.us", "Paramount+withShowtime.us"]
+      "number": "TBD10",
+      "name": "HBO Movies West",
+      "color": "#1e1e24",
+      "xmltv_ids": [
+        "HBOMoviesPacific.us"
+      ]
     },
     {
-      "number": "3064",
-      "name": "Showtime 2",
-      "color": "#8a0b22",
-      "xmltv_ids": ["Showtime2.us"]
+      "number": "TBD11",
+      "name": "HBO Latino",
+      "color": "#13131b",
+      "xmltv_ids": [
+        "HBOLatino.us"
+      ]
+    },
+    {
+      "number": "TBD12",
+      "name": "HBO Latino West",
+      "color": "#13131b",
+      "xmltv_ids": [
+        "HBOLatinoPacific.us"
+      ]
+    },
+    {
+      "number": "TBD13",
+      "name": "HBO Boxing",
+      "color": "#141414",
+      "xmltv_ids": [
+        "HBOBoxing.us"
+      ]
     }
   ]
 }
