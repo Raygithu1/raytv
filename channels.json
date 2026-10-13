@@ -195,15 +195,6 @@
         "VH1.us",
         "VH1Pacific.us"
       ]
-    },
-    {
-      "number": "66",
-      "name": "EBC 東森洋片",
-      "color": "#166534",
-      "xmltv_ids": [],
-      "epg_pw_ids": [
-        456568
-      ]
     }
   ]
 }
