@@ -6,6 +6,8 @@
   var DATA = null;
   var days = [];
   var selected = null;
+  var guideEl = null;
+  var sliderEl = null;
 
   var partsFmt = new Intl.DateTimeFormat("en-US", {
     timeZone: TZ,
@@ -138,6 +140,7 @@
     // Ruler row
     var rulerRow = el("div", "ruler-row");
     rulerRow.appendChild(el("div", "ch-col ruler-corner", "Channel"));
+    rulerRow.appendChild(el("div", "num-col ruler-corner", "No."));
     var ruler = el("div", "ruler");
     ruler.style.width = trackW + "px";
     var hours = Math.round(dayLenMin / 60);
@@ -160,9 +163,10 @@
         (ch.color || "#555") + ";";
       col.appendChild(swatch);
       var name = el("div", "ch-name");
-      name.appendChild(el("div", "", ch.number + " " + ch.name));
+      name.appendChild(el("div", "", ch.name));
       col.appendChild(name);
       row.appendChild(col);
+      row.appendChild(el("div", "num-col", ch.number));
 
       var track = el("div", "track");
       track.style.width = trackW + "px";
@@ -210,6 +214,16 @@
     if (now >= midnight && now < nextMid) {
       guide.scrollLeft = Math.max(0, Math.round(((now - midnight) / 60000) * PPM) - 160);
     }
+    syncSlider();
+  }
+
+  function syncSlider() {
+    if (!guideEl || !sliderEl) return;
+    var max = guideEl.scrollWidth - guideEl.clientWidth;
+    if (max < 0) max = 0;
+    sliderEl.max = max;
+    sliderEl.value = guideEl.scrollLeft;
+    sliderEl.disabled = max === 0;
   }
 
   function formatHour(ts) {
@@ -230,6 +244,20 @@
     PPM = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--ppm")) || PPM;
     tickClock();
     setInterval(tickClock, 1000);
+
+    guideEl = document.getElementById("guide");
+    sliderEl = document.getElementById("time-slider");
+    if (sliderEl) {
+      sliderEl.addEventListener("input", function () {
+        guideEl.scrollLeft = +sliderEl.value;
+      });
+    }
+    if (guideEl) {
+      guideEl.addEventListener("scroll", function () {
+        if (sliderEl) sliderEl.value = guideEl.scrollLeft;
+      });
+    }
+    window.addEventListener("resize", syncSlider);
 
     fetch("data.json")
       .then(function (r) {

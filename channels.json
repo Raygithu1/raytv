@@ -1,6 +1,7 @@
 {
   "timezone": "America/Los_Angeles",
   "source": "https://iptv-epg.org/files/epg-us.xml.gz",
+  "epg_pw_source": "https://epg.pw/api/epg.xml",
   "channels": [
     {
       "number": "3187",
@@ -8,6 +9,23 @@
       "color": "#0b0b0f",
       "xmltv_ids": [
         "HBO.us"
+      ]
+    },
+    {
+      "number": "3063",
+      "name": "Showtime",
+      "color": "#2b2233",
+      "xmltv_ids": [
+        "Showtime.us",
+        "Paramount+withShowtime.us"
+      ]
+    },
+    {
+      "number": "3064",
+      "name": "Showtime 2",
+      "color": "#2b2233",
+      "xmltv_ids": [
+        "Showtime2.us"
       ]
     },
     {
@@ -107,75 +125,75 @@
       ]
     },
     {
-      "number": "CIN1",
-      "name": "Cinemax East",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CineMAX.us"
+      "number": "65",
+      "name": "HBO Asia",
+      "color": "#0e7490",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369809
       ]
     },
     {
-      "number": "CIN2",
-      "name": "Cinemax West",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CineMAXPacific.us"
+      "number": "220",
+      "name": "HBO Family Asia",
+      "color": "#0e7490",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369786
       ]
     },
     {
-      "number": "CIN3",
-      "name": "Cinemax Hits",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxHits.us"
+      "number": "219",
+      "name": "HBO Hits Asia",
+      "color": "#0e7490",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369840
       ]
     },
     {
-      "number": "CIN4",
-      "name": "Cinemax Hits West",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxHitsPacific.us"
+      "number": "218",
+      "name": "HBO Signature Asia",
+      "color": "#0e7490",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369758
       ]
     },
     {
-      "number": "CIN5",
-      "name": "Cinemax Action",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxAction.us"
+      "number": "412",
+      "name": "Cinemax",
+      "color": "#0e7490",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369795
       ]
     },
     {
-      "number": "CIN6",
-      "name": "Cinemax Action West",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxActionPacific.us"
+      "number": "5640",
+      "name": "Galaxy",
+      "color": "#b45309",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        523990
       ]
     },
     {
-      "number": "CIN7",
-      "name": "Cinemax Classics",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxClassics.us"
+      "number": "5641",
+      "name": "Galaxy Premium",
+      "color": "#b45309",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        524050
       ]
     },
     {
-      "number": "CIN8",
-      "name": "Cinemax Classics West",
-      "color": "#1b1b22",
+      "number": "3272",
+      "name": "VH1",
+      "color": "#c026d3",
       "xmltv_ids": [
-        "CinemaxClassicsPacific.us"
-      ]
-    },
-    {
-      "number": "CIN9",
-      "name": "Cinemax Spanish",
-      "color": "#1b1b22",
-      "xmltv_ids": [
-        "CinemaxSpanish.us"
+        "VH1.us",
+        "VH1Pacific.us"
       ]
     }
   ]
