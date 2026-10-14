@@ -206,6 +206,14 @@
       "xmltv_ids": [
         "MBCSPORTS+.kr"
       ]
+    },
+    {
+      "number": "2223",
+      "name": "MBC",
+      "color": "#15803d",
+      "xmltv_ids": [
+        "MBC.kr"
+      ]
     }
   ]
 }
