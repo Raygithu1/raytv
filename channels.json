@@ -1,6 +1,9 @@
 {
   "timezone": "America/Los_Angeles",
   "source": "https://iptv-epg.org/files/epg-us.xml.gz",
+  "xmltv_sources": [
+    "https://iptv-epg.org/files/epg-kr.xml.gz"
+  ],
   "epg_pw_source": "https://epg.pw/api/epg.xml",
   "channels": [
     {
@@ -194,6 +197,14 @@
       "xmltv_ids": [
         "VH1.us",
         "VH1Pacific.us"
+      ]
+    },
+    {
+      "number": "2222",
+      "name": "MBC Sports+",
+      "color": "#1d4ed8",
+      "xmltv_ids": [
+        "MBCSPORTS+.kr"
       ]
     }
   ]

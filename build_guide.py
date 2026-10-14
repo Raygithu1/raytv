@@ -117,36 +117,38 @@ def main():
     # channel number -> xmltv_id (or epg.pw id) -> list of programmes
     collected = {ch["number"]: {} for ch in channels}
 
-    print(f"Downloading {feed_url} ...", flush=True)
-    request = urllib.request.Request(
-        feed_url, headers={"User-Agent": USER_AGENT}
-    )
-    with urllib.request.urlopen(request, timeout=300) as response:
-        with gzip.open(response, "rb") as stream:
-            for _event, elem in ET.iterparse(stream, events=("end",)):
-                if elem.tag == "channel":
-                    elem.clear()
-                    continue
-                if elem.tag != "programme":
-                    continue
+    feed_urls = [feed_url] + [
+        url for url in config.get("xmltv_sources", []) if url not in feed_url
+    ]
+    for url in feed_urls:
+        print(f"Downloading {url} ...", flush=True)
+        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(request, timeout=300) as response:
+            with gzip.open(response, "rb") as stream:
+                for _event, elem in ET.iterparse(stream, events=("end",)):
+                    if elem.tag == "channel":
+                        elem.clear()
+                        continue
+                    if elem.tag != "programme":
+                        continue
 
-                xmltv_id = elem.get("channel")
-                if xmltv_id in id_owner:
-                    start = parse_xmltv_time(elem.get("start"))
-                    stop = parse_xmltv_time(elem.get("stop"))
-                    if start and stop and stop > window_lo and start < window_hi:
-                        owner = id_owner[xmltv_id]["number"]
-                        collected[owner].setdefault(xmltv_id, []).append(
-                            {
-                                "start_ts": int(start.timestamp()),
-                                "stop_ts": int(stop.timestamp()),
-                                "title": child_text(elem, "title"),
-                                "subtitle": child_text(elem, "sub-title"),
-                                "desc": child_text(elem, "desc"),
-                                "category": child_text(elem, "category"),
-                            }
-                        )
-                elem.clear()
+                    xmltv_id = elem.get("channel")
+                    if xmltv_id in id_owner:
+                        start = parse_xmltv_time(elem.get("start"))
+                        stop = parse_xmltv_time(elem.get("stop"))
+                        if start and stop and stop > window_lo and start < window_hi:
+                            owner = id_owner[xmltv_id]["number"]
+                            collected[owner].setdefault(xmltv_id, []).append(
+                                {
+                                    "start_ts": int(start.timestamp()),
+                                    "stop_ts": int(stop.timestamp()),
+                                    "title": child_text(elem, "title"),
+                                    "subtitle": child_text(elem, "sub-title"),
+                                    "desc": child_text(elem, "desc"),
+                                    "category": child_text(elem, "category"),
+                                }
+                            )
+                    elem.clear()
 
     # --- epg.pw sources (e.g. HBO Asia / Asia-Pacific feeds) ---
     pw_source = config.get("epg_pw_source", EPG_PW_SOURCE)
