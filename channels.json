@@ -216,19 +216,67 @@
       ]
     },
     {
-      "number": "2222",
-      "name": "MBC Sports+",
-      "color": "#1d4ed8",
+      "id": "kbs-n-sports",
+      "number": "2518",
+      "float": false,
+      "name": "KBS N Sports",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "KBSNSports.kr"
+      ]
+    },
+    {
+      "id": "mbc",
+      "number": "",
+      "name": "MBC",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "MBC.kr"
+      ]
+    },
+    {
+      "id": "mbc-sports-plus",
+      "number": "",
+      "name": "MBC SPORTS+",
+      "color": "#dc2626",
       "xmltv_ids": [
         "MBCSPORTS+.kr"
       ]
     },
     {
-      "number": "2223",
-      "name": "MBC",
-      "color": "#15803d",
+      "id": "sbs-sports",
+      "number": "",
+      "name": "SBS Sports",
+      "color": "#dc2626",
       "xmltv_ids": [
-        "MBC.kr"
+        "SBSSports.kr"
+      ]
+    },
+    {
+      "id": "spotv",
+      "number": "",
+      "name": "SPOTV",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "SPOTV.kr"
+      ]
+    },
+    {
+      "id": "spotv2",
+      "number": "",
+      "name": "SPOTV2",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "SPOTV2.kr"
+      ]
+    },
+    {
+      "id": "tvn-sports",
+      "number": "",
+      "name": "tvN SPORTS",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "tvNSPORTS.kr"
       ]
     }
   ]

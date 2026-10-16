@@ -47,6 +47,11 @@ def child_text(elem, tag):
     return node.text.strip()
 
 
+def channel_key(ch):
+    """Stable internal id for a channel (allows blank display numbers)."""
+    return str(ch.get("id") or ch["number"])
+
+
 def fetch_epg_pw(pw_id, dates, base_url, window_lo, window_hi):
     """Fetch programme listings for one epg.pw channel id across the given dates.
 
@@ -93,16 +98,19 @@ def main():
     tz_name = config.get("timezone", "America/Los_Angeles")
 
     # Channels with a real numeric number float to the top, sorted by channel
-    # name; placeholder (non-numeric) channels keep their config order below.
-    def is_numbered(ch):
+    # name; placeholder channels (blank number, or "float": false) keep their
+    # config order below.
+    def is_floating(ch):
+        if "float" in ch:
+            return bool(ch["float"])
         return str(ch["number"]).strip().isdigit()
 
-    numbered = sorted(
-        (ch for ch in channels if is_numbered(ch)),
+    floating = sorted(
+        (ch for ch in channels if is_floating(ch)),
         key=lambda ch: ch["name"].lower(),
     )
-    placeholders = [ch for ch in channels if not is_numbered(ch)]
-    channels = numbered + placeholders
+    placeholders = [ch for ch in channels if not is_floating(ch)]
+    channels = floating + placeholders
 
     # Map every accepted xmltv id to its owning channel, preserving priority.
     id_owner = {}
@@ -114,8 +122,8 @@ def main():
     window_lo = now - dt.timedelta(hours=PAST_HOURS)
     window_hi = now + dt.timedelta(hours=FUTURE_HOURS)
 
-    # channel number -> xmltv_id (or epg.pw id) -> list of programmes
-    collected = {ch["number"]: {} for ch in channels}
+    # channel key -> xmltv_id (or epg.pw id) -> list of programmes
+    collected = {channel_key(ch): {} for ch in channels}
 
     feed_urls = [feed_url] + [
         url for url in config.get("xmltv_sources", []) if url not in feed_url
@@ -137,7 +145,7 @@ def main():
                         start = parse_xmltv_time(elem.get("start"))
                         stop = parse_xmltv_time(elem.get("stop"))
                         if start and stop and stop > window_lo and start < window_hi:
-                            owner = id_owner[xmltv_id]["number"]
+                            owner = channel_key(id_owner[xmltv_id])
                             collected[owner].setdefault(xmltv_id, []).append(
                                 {
                                     "start_ts": int(start.timestamp()),
@@ -152,10 +160,10 @@ def main():
 
     # --- epg.pw sources (e.g. HBO Asia / Asia-Pacific feeds) ---
     pw_source = config.get("epg_pw_source", EPG_PW_SOURCE)
-    pw_owner = {}  # epg.pw id (as str) -> channel number
+    pw_owner = {}  # epg.pw id (as str) -> channel key
     for ch in channels:
         for pw_id in ch.get("epg_pw_ids", []):
-            pw_owner[str(pw_id)] = ch["number"]
+            pw_owner[str(pw_id)] = channel_key(ch)
 
     if pw_owner:
         utc_today = now.date()
@@ -179,28 +187,29 @@ def main():
     programmes = []
     out_channels = []
     for ch in channels:
-        number = ch["number"]
+        key = channel_key(ch)
         candidates = list(ch.get("xmltv_ids", [])) + [
             str(pw_id) for pw_id in ch.get("epg_pw_ids", [])
         ]
         chosen = []
         chosen_id = None
         for xid in candidates:
-            entries = collected[number].get(xid)
+            entries = collected[key].get(xid)
             if entries:
                 chosen = entries
                 chosen_id = xid
                 break
         out_channels.append(
             {
-                "number": number,
+                "id": key,
+                "number": ch["number"],
                 "name": ch["name"],
                 "color": ch.get("color", "#333"),
                 "xmltv_id": chosen_id,
             }
         )
         for entry in chosen:
-            entry["channel"] = number
+            entry["channel"] = key
             programmes.append(entry)
 
     programmes.sort(key=lambda p: (p["channel"], p["start_ts"]))
@@ -219,7 +228,7 @@ def main():
         json.dump(output, fh, ensure_ascii=False, separators=(",", ":"))
 
     summary = ", ".join(
-        f"{c['number']} {c['name']}: {sum(1 for p in programmes if p['channel'] == c['number'])}"
+        f"{c['number'] or c['id']} {c['name']}: {sum(1 for p in programmes if p['channel'] == c['id'])}"
         for c in out_channels
     )
     print(f"Wrote {OUTPUT_FILE} ({len(programmes)} programmes) -> {summary}")

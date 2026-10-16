@@ -156,6 +156,7 @@
 
     // Channel rows
     DATA.channels.forEach(function (ch) {
+      var chKey = ch.id || ch.number;
       var row = el("div", "chan-row");
       var col = el("div", "ch-col");
       var swatch = el("span", "swatch");
@@ -178,7 +179,7 @@
       }
 
       DATA.programmes
-        .filter(function (p) { return p.channel === ch.number && p.stop_ts * 1000 > midnight && p.start_ts * 1000 < nextMid; })
+        .filter(function (p) { return p.channel === chKey && p.stop_ts * 1000 > midnight && p.start_ts * 1000 < nextMid; })
         .sort(function (a, b) { return a.start_ts - b.start_ts; })
         .forEach(function (p) {
           var s = Math.max(p.start_ts * 1000, midnight);
