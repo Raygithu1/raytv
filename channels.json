@@ -216,8 +216,131 @@
       ]
     },
     {
-      "id": "kbs-n-sports",
-      "number": "2518",
+      "number": "2500",
+      "float": false,
+      "name": "KBS1",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "KBS1.kr"
+      ]
+    },
+    {
+      "number": "2501",
+      "float": false,
+      "name": "KBS2",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "KBS2.kr"
+      ]
+    },
+    {
+      "number": "2502",
+      "float": false,
+      "name": "MBC",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "MBC.kr"
+      ]
+    },
+    {
+      "number": "2503",
+      "float": false,
+      "name": "SBS",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "SBS.kr"
+      ]
+    },
+    {
+      "number": "2504",
+      "float": false,
+      "name": "JTBC",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "JTBC.kr"
+      ]
+    },
+    {
+      "number": "2505",
+      "float": false,
+      "name": "tvN",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "tvN.kr"
+      ]
+    },
+    {
+      "number": "2506",
+      "float": false,
+      "name": "YTN",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "YTN.kr"
+      ]
+    },
+    {
+      "number": "2507",
+      "float": false,
+      "name": "TV Chosun",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "TV조선.kr"
+      ]
+    },
+    {
+      "number": "2508",
+      "float": false,
+      "name": "MBN",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "MBN.kr"
+      ]
+    },
+    {
+      "number": "2509",
+      "float": false,
+      "name": "Channel A",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "채널A.kr"
+      ]
+    },
+    {
+      "number": "2510",
+      "float": false,
+      "name": "Yonhap News TV",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "연합뉴스TV.kr"
+      ]
+    },
+    {
+      "number": "2511",
+      "float": false,
+      "name": "KBS Drama",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "KBSDrama.kr"
+      ]
+    },
+    {
+      "number": "2513",
+      "float": false,
+      "name": "SBS Plus",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "SBSPlus.kr"
+      ]
+    },
+    {
+      "number": "2514",
+      "float": false,
+      "name": "SPOTV ON",
+      "color": "#dc2626",
+      "xmltv_ids": []
+    },
+    {
+      "number": "2517",
       "float": false,
       "name": "KBS N Sports",
       "color": "#dc2626",
@@ -226,26 +349,33 @@
       ]
     },
     {
-      "id": "mbc",
-      "number": "",
-      "name": "MBC",
-      "color": "#dc2626",
-      "xmltv_ids": [
-        "MBC.kr"
-      ]
-    },
-    {
-      "id": "mbc-sports-plus",
-      "number": "",
-      "name": "MBC SPORTS+",
+      "number": "2518",
+      "float": false,
+      "name": "MBC Sports+",
       "color": "#dc2626",
       "xmltv_ids": [
         "MBCSPORTS+.kr"
       ]
     },
     {
-      "id": "sbs-sports",
-      "number": "",
+      "number": "2519",
+      "float": false,
+      "name": "On Style",
+      "color": "#dc2626",
+      "xmltv_ids": []
+    },
+    {
+      "number": "2520",
+      "float": false,
+      "name": "EBS1",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "EBS.kr"
+      ]
+    },
+    {
+      "number": "2521",
+      "float": false,
       "name": "SBS Sports",
       "color": "#dc2626",
       "xmltv_ids": [
@@ -253,8 +383,17 @@
       ]
     },
     {
-      "id": "spotv",
-      "number": "",
+      "number": "2522",
+      "float": false,
+      "name": "skySports",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "skySports.kr"
+      ]
+    },
+    {
+      "number": "2524",
+      "float": false,
       "name": "SPOTV",
       "color": "#dc2626",
       "xmltv_ids": [
@@ -262,8 +401,42 @@
       ]
     },
     {
-      "id": "spotv2",
-      "number": "",
+      "number": "2525",
+      "float": false,
+      "name": "JTBC Golf",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "JTBCGolf.kr"
+      ]
+    },
+    {
+      "number": "2526",
+      "float": false,
+      "name": "SBS Golf",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "SBSGolf.kr"
+      ]
+    },
+    {
+      "number": "2527",
+      "float": false,
+      "name": "OCN",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "OCN.kr"
+      ]
+    },
+    {
+      "number": "2530",
+      "float": false,
+      "name": "iNet",
+      "color": "#dc2626",
+      "xmltv_ids": []
+    },
+    {
+      "number": "2531",
+      "float": false,
       "name": "SPOTV2",
       "color": "#dc2626",
       "xmltv_ids": [
@@ -271,12 +444,64 @@
       ]
     },
     {
-      "id": "tvn-sports",
-      "number": "",
-      "name": "tvN SPORTS",
+      "number": "2532",
+      "float": false,
+      "name": "FTV",
       "color": "#dc2626",
       "xmltv_ids": [
-        "tvNSPORTS.kr"
+        "FTV.kr"
+      ]
+    },
+    {
+      "number": "2533",
+      "float": false,
+      "name": "SPOTV ON 2",
+      "color": "#dc2626",
+      "xmltv_ids": []
+    },
+    {
+      "number": "2534",
+      "float": false,
+      "name": "Baduk TV",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "바둑TV.kr"
+      ]
+    },
+    {
+      "number": "2535",
+      "float": false,
+      "name": "Mnet",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "Mnet.kr"
+      ]
+    },
+    {
+      "number": "2536",
+      "float": false,
+      "name": "KBS Kids",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "KBSKids.kr"
+      ]
+    },
+    {
+      "number": "2540",
+      "float": false,
+      "name": "Arirang",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "아리랑TV.kr"
+      ]
+    },
+    {
+      "number": "2541",
+      "float": false,
+      "name": "MBC Every1",
+      "color": "#dc2626",
+      "xmltv_ids": [
+        "MBCEvery1.kr"
       ]
     }
   ]
