@@ -2,7 +2,9 @@
   "timezone": "America/Los_Angeles",
   "source": "https://iptv-epg.org/files/epg-us.xml.gz",
   "xmltv_sources": [
-    "https://iptv-epg.org/files/epg-kr.xml.gz"
+    "https://iptv-epg.org/files/epg-kr.xml.gz",
+    "https://iptv-epg.org/files/epg-sg.xml.gz",
+    "https://iptv-epg.org/files/epg-id.xml.gz"
   ],
   "epg_pw_source": "https://epg.pw/api/epg.xml",
   "channels": [
@@ -131,7 +133,9 @@
       "number": "65",
       "name": "HBO Asia",
       "color": "#0e7490",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "HBO.sg"
+      ],
       "epg_pw_ids": [
         369809
       ]
@@ -140,7 +144,9 @@
       "number": "220",
       "name": "HBO Family Asia",
       "color": "#0e7490",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "HBOFamily.sg"
+      ],
       "epg_pw_ids": [
         369786
       ]
@@ -149,7 +155,9 @@
       "number": "219",
       "name": "HBO Hits Asia",
       "color": "#0e7490",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "HBOHits.sg"
+      ],
       "epg_pw_ids": [
         369840
       ]
@@ -158,7 +166,9 @@
       "number": "218",
       "name": "HBO Signature Asia",
       "color": "#0e7490",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "HBOSignature.sg"
+      ],
       "epg_pw_ids": [
         369758
       ]
@@ -167,7 +177,9 @@
       "number": "412",
       "name": "Cinemax",
       "color": "#0e7490",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "CINEMAX.sg"
+      ],
       "epg_pw_ids": [
         369795
       ]
@@ -176,7 +188,9 @@
       "number": "5640",
       "name": "Galaxy",
       "color": "#b45309",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "Galaxy.id"
+      ],
       "epg_pw_ids": [
         523990
       ]
@@ -185,7 +199,9 @@
       "number": "5641",
       "name": "Galaxy Premium",
       "color": "#b45309",
-      "xmltv_ids": [],
+      "xmltv_ids": [
+        "GalaxyPremium.id"
+      ],
       "epg_pw_ids": [
         524050
       ]
