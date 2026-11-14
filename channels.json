@@ -213,6 +213,16 @@
         "VH1.us",
         "VH1Pacific.us"
       ]
+    },
+    {
+      "number": "5631",
+      "name": "Rock Action",
+      "color": "#1d4ed8",
+      "xmltv_ids": [],
+      "epg_pw_ids": [
+        369727,
+        523998
+      ]
     }
   ]
 }
