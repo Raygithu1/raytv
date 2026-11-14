@@ -217,6 +217,7 @@ def main():
     output = {
         "generated": now.isoformat().replace("+00:00", "Z"),
         "timezone": tz_name,
+        "timezone_label": config.get("timezone_label", ""),
         "source": feed_url,
         "window_start": int(window_lo.timestamp()),
         "window_end": int(window_hi.timestamp()),

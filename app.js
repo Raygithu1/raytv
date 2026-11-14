@@ -1,31 +1,38 @@
 (function () {
   "use strict";
 
-  var TZ = "America/Los_Angeles";
+  // Timezone comes from data.json ("timezone"); "Etc/GMT+7" is a fixed UTC-7
+  // offset (no DST). This is the fallback used before data.json loads.
+  var TZ = "Etc/GMT+7";
   var PPM = 2.4;
   var DATA = null;
   var days = [];
   var selected = null;
   var guideEl = null;
   var sliderEl = null;
+  var partsFmt, dateFmt, timeFmtShort, fullFmt;
 
-  var partsFmt = new Intl.DateTimeFormat("en-US", {
-    timeZone: TZ,
-    timeZoneName: "short",
-    hour12: false,
-    year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", second: "2-digit"
-  });
-  var dateFmt = new Intl.DateTimeFormat("en-US", {
-    timeZone: TZ, dateStyle: "medium"
-  });
-  var timeFmtShort = new Intl.DateTimeFormat("en-US", {
-    timeZone: TZ, hour: "numeric", minute: "2-digit"
-  });
-  var fullFmt = new Intl.DateTimeFormat("en-US", {
-    timeZone: TZ, weekday: "short", month: "short", day: "numeric",
-    hour: "numeric", minute: "2-digit"
-  });
+  function makeFormatters(tz) {
+    TZ = tz || TZ;
+    partsFmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ,
+      timeZoneName: "short",
+      hour12: false,
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
+    });
+    dateFmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ, dateStyle: "medium"
+    });
+    timeFmtShort = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ, hour: "numeric", minute: "2-digit"
+    });
+    fullFmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ, weekday: "short", month: "short", day: "numeric",
+      hour: "numeric", minute: "2-digit"
+    });
+  }
+  makeFormatters(TZ);
 
   function pt(o) {
     return {
@@ -77,7 +84,8 @@
     document.getElementById("clock-time").textContent =
       h12 + ":" + pad(p.mi) + ":" + pad(p.s) + " " + ampm;
     document.getElementById("clock-date").textContent =
-      dateFmt.format(now) + " " + p.tz;
+      dateFmt.format(now) + " " +
+      ((DATA && DATA.timezone_label) ? DATA.timezone_label : p.tz);
   }
 
   function buildDays() {
@@ -267,6 +275,7 @@
       })
       .then(function (data) {
         DATA = data;
+        if (data.timezone) makeFormatters(data.timezone);
         var foot = document.getElementById("source");
         var a = el("a", null, "Data: " + data.source);
         a.href = data.source;

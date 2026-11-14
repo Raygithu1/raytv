@@ -1,5 +1,6 @@
 {
-  "timezone": "America/Los_Angeles",
+  "timezone": "Etc/GMT+7",
+  "timezone_label": "PT (UTC-7)",
   "source": "https://iptv-epg.org/files/epg-us.xml.gz",
   "xmltv_sources": [
     "https://iptv-epg.org/files/epg-sg.xml.gz",
